@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kate</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffe6f0, #fbd5ec);
+      font-family: 'Amatic SC', cursive;
+      color: #2d2d2d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 700px;
+      background: #fff0f5;
+      padding: 2.5rem;
+      margin: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(222, 90, 140, 0.15);
+      text-align: center;
+      border: 1px solid #f3a6c9;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      color: #d63384;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-size: 1.8rem;
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+      color: #b34d75;
+    }
+
+    .highlight {
+      color: #e75480;
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
+    .signature {
+      font-style: italic;
+      color: #94476b;
+      margin-top: 2rem;
+      font-size: 1.8rem;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      font-size: 1.6rem;
+      color: #b57397;
+      font-style: italic;
+    }
+
+    .screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      min-height: 100vh;
+      background: linear-gradient(to bottom right, #ffe6f0, #fbd5ec);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .screen.active {
+      display: flex;
+    }
+
+    .screen h1 {
+      font-size: 3rem;
+      color: #d63384;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      font-family: 'Amatic SC', cursive;
+      font-size: 1.5rem;
+      background-color: #d63384;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(214, 51, 132, 0.3);
+      margin-top: 1rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .heart {
+      position: fixed;
+      top: -50px;
+      width: 20px;
+      height: 20px;
+      background: #e75480;
+      transform: rotate(-45deg);
+      animation: fall linear infinite;
+      opacity: 0.8;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #e75480;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: 10px;
+      top: 0;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+      }
+      100% {
+        transform: translateY(120vh) rotate(360deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 1rem;
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen active" id="screen1">
+    <h1 style="margin-top: 20vh">Happy National Girlfriend's Day 💖</h1>
+    <button class="btn" onclick="nextScreen(2)">Click to go next</button>
+  </div>
+
+  <div class="screen" id="screen2">
+    <h1 style="margin-top: 20vh">Do you want to open it? 💌</h1>
+    <div class="btn-group">
+      <button class="btn" onclick="nextScreen(3)">Yes</button>
+      <button class="btn" onclick="nextScreen(4)">No</button>
+    </div>
+  </div>
+
+  <div class="screen" id="screen3">
+    <div class="container">
+      <h1>Heyyy Kate ♡</h1>
+      <p>So apparently today is National Girlfriend’s Day and while I know you’re not officially mine (yet 👀), if the universe handed out trophies,you’d definitely win Best Girl. 💐</p>
+      <p>Not saying I’ve claimed the title for you… but if I did, would you object? 😏, Just saying, if the shoe fits…</p>
+      <p>Imma go straight to the point, I wish we were celebrating you and this day like we are together, but I know it’s only a matter of time</p>
+      <p>You are simply ethereal,and the thought of us being together seems unreal. I really like you, because love seems a little strong, but fuck it, I fell for you the day I saw you. What I feel for you cannot simply be put down in words. But as I write this know that you hold a special place in my heart, and yes all four chambers 😙
+
+</p>
+      <p></p>
+      <p class="highlight"></p>
+      <div class="signature">– Miles</div>
+      <div class="footer">“If being yours is a risk, I’ve already fallen headfirst..”</div>
+    </div>
+  </div>
+
+  <div class="screen" id="screen4">
+    <h1 style="margin-top: 20vh">Oops, wrong choice 😿</h1>
+    <p style="font-size: 3.0rem">Let’s try that again, shall we?</p>
+    <button class="btn" onclick="nextScreen(2)">Go Back</button>
+  </div>
+
+  <script>
+    function nextScreen(n) {
+      for (let i = 1; i <= 4; i++) {
+        document.getElementById('screen' + i).classList.remove('active');
+      }
+      document.getElementById('screen' + n).classList.add('active');
+    }
+
+    function createFloatingHeart() {
+      const el = document.createElement('div');
+      el.classList.add('heart');
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.animationDuration = (5 + Math.random() * 5) + 's';
+      el.style.opacity = Math.random() * 0.7 + 0.3;
+      el.style.transform = `scale(${Math.random() + 0.5})`;
+      document.body.appendChild(el);
+      setTimeout(() => el.remove(), 12000);
+    }
+
+    setInterval(createFloatingHeart, 300);
+  </script>
+</body>
+</html>
